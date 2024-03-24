@@ -1,0 +1,98 @@
+ extendBodyBehindAppBar: true,
+      appBar: AppBar(
+      backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Text("ॐ",style: TextStyle(fontFamily: 'hind_bold',color: baseColor,fontSize: defaultSize*2),),
+        ),
+
+
+
+      ),
+     body: Container(
+       width: double.infinity,
+       height: double.infinity,
+       decoration: const BoxDecoration(
+           gradient: RadialGradient(
+               colors: [
+                 gradient1,
+                 gradient2
+               ],
+               radius: 1.25
+           )
+       ),
+       child: Container(
+
+       ),
+
+     ),
+
+     GButton(icon: MingCute.file_certificate_fill),
+              GButton(icon: Iconsax.money_send_outline),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              BottomNavigationBar(
+                      selectedItemColor: baseColor,
+
+                      items: [
+                        BottomNavigationBarItem(
+                            icon: Image.asset(
+                              "assets/images/ohm.png",
+                              width: defaultSize,
+                              height: defaultSize,
+                            ),
+                            label: ""),
+                        const BottomNavigationBarItem(
+                            icon: Icon(
+                              MingCute.music_3_line,
+                              size: defaultSize - 2,
+                            ),
+                            label: ""),
+                        const BottomNavigationBarItem(
+                            icon: Icon(
+                              Iconsax.money_send_outline,
+                              size: defaultSize - 2,
+                            ),
+                            label: "")
+                      ],
+                    ),
+
+
+
+
+                     NavigationBar(
+
+                              height: 60,
+                              elevation: 0,
+                              selectedIndex: controller.selectedIndex.value,
+                              onDestinationSelected: (index) => controller.selectedIndex.value = index,
+                              destinations: [
+                                NavigationDestination(icon: Image.asset(
+                                  "assets/images/ohm.png",
+                                  width: defaultSize-5,
+                                  height: defaultSize-5,
+                                ), label: arti,),
+                                const NavigationDestination(icon:  Icon(
+                                  MingCute.music_3_line,
+                                  size: defaultSize - 4,
+                                ), label: bhajan),
+                                const NavigationDestination(icon:  Icon(
+                                  Iconsax.money_send_outline,
+                                  size: defaultSize - 4,
+                                ), label: donation)
+                              ],
+
+                            ),
