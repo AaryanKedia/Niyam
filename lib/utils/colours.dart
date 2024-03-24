@@ -2,5 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-Color primaryColour = Colors.red;
-Color secondaryColor = Colors.yellowAccent;
+
+const gradient1 =  Color(0xff802201);
+const gradient2 = Color(0xff210D10);
