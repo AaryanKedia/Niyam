@@ -23,33 +23,32 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: Container(
+      extendBodyBehindAppBar: true,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+        child: Obx(
+          () =>  GNav(
+            gap: 10,
+            backgroundColor: Colors.transparent,
+            color: Colors.grey,
+            activeColor: baseColor,
+            tabBackgroundColor: Colors.yellow.shade200.withOpacity(0.5),
 
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-          child: Obx(
-            () =>  GNav(
-              gap: 10,
-              backgroundColor: Colors.transparent,
-              color: Colors.grey,
-              activeColor: baseColor,
-              tabBackgroundColor: Colors.black,
-              padding: const EdgeInsets.all(16),
-              selectedIndex: controller.selectedIndex.value,
-              onTabChange: (index) => controller.selectedIndex.value = index,
+            padding: const EdgeInsets.all(10),
+            selectedIndex: controller.selectedIndex.value,
+            onTabChange: (index) => controller.selectedIndex.value = index,
 
-              tabs: const [
-                GButton(
-                  icon: FontAwesomeIcons.om,
-                  text: arti,
-                ),
-                GButton(
-                  icon: MingCute.music_3_line,
-                  text: bhajan,
-                ),
-                GButton(icon: Iconsax.money_send_outline, text: donation),
-              ],
-            ),
+            tabs: const [
+              GButton(
+                icon: FontAwesomeIcons.om,
+                text: arti,
+              ),
+              GButton(
+                icon: MingCute.music_3_line,
+                text: bhajan,
+              ),
+              GButton(icon: Iconsax.money_send_outline, text: donation),
+            ],
           ),
         ),
       ),
