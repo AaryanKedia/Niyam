@@ -16,7 +16,7 @@ class DonationScreen extends StatelessWidget{
           backgroundColor: Colors.transparent,
           centerTitle: true,
           title: const Padding(
-            padding: EdgeInsets.only(top: 15),
+            padding: EdgeInsets.only(top: 10),
             child: Text(donation,style: TextStyle(fontSize: defaultSize*1.25,fontFamily: 'hind_bold',color: baseColor),),
           ),
           actions: const [

@@ -1,0 +1,106 @@
+appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          title: const Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: Text(
+              arti,
+              style: TextStyle(
+                  fontSize: defaultSize * 1.25,
+                  fontFamily: 'hind_bold',
+                  color: baseColor),
+            ),
+          ),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.only(right: 20, top: 15),
+              child: Icon(
+                Iconsax.information_outline,
+                size: 26,
+                color: Colors.white60,
+              ),
+            ),
+          ],
+        ),
+
+
+        // DOT NAVIgAtiOn
+
+        DotNavigationBar(
+                  enableFloatingNavBar: true,
+                  currentIndex: _selectedIndex,
+                  marginR: EdgeInsets.only(left: MediaQuery.sizeOf(context).width*0.20,right: MediaQuery.sizeOf(context).width*0.20,bottom: 20),
+                  paddingR: EdgeInsets.all(6),
+                  backgroundColor: Colors.black,
+                  unselectedItemColor: Colors.grey,
+                  selectedItemColor: Colors.white,
+
+
+                  onTap: (index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  // dotIndicatorColor: Colors.black,
+                  items: [
+
+                    /// Home
+                    DotNavigationBarItem(
+                      icon: Icon(IconlyBroken.home),
+
+                    ),
+
+                    /// Likes
+                    // DotNavigationBarItem(
+                    //   icon: Icon(IconlyBroken.heart),
+                    //   selectedColor: Colors.red,
+                    // ),
+
+                    /// Search
+                    DotNavigationBarItem(
+                      icon: Icon(IconlyBroken.search),
+                      // selectedColor: Colors.orange.shade700,
+                    ),
+
+                    /// Profile
+                    DotNavigationBarItem(
+                      icon: Icon(
+                        IconlyBroken.profile,
+                      ),
+                      // selectedColor: Colors.green.shade600,
+                    ),
+                  ],
+                ),
+
+
+
+                ///ORIGIBAL
+
+                Obx(
+                        () =>  Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 4),
+                          child: GNav(
+                            gap: 10,
+                            backgroundColor: Colors.yellow,
+                            color: Colors.grey,
+                            activeColor: baseColor,
+                            tabBackgroundColor: Colors.yellow.shade200.withOpacity(0.5),
+
+                            padding: const EdgeInsets.all(10),
+                            selectedIndex: controller.selectedIndex.value,
+                            onTabChange: (index) => controller.selectedIndex.value = index,
+
+                            tabs: const [
+                              GButton(
+                                icon: FontAwesomeIcons.om,
+                                text: arti,
+                              ),
+                              GButton(
+                                icon: MingCute.music_3_line,
+                                text: bhajan,
+                              ),
+                              GButton(icon: Iconsax.money_send_outline, text: donation),
+                            ],
+                          ),
+                        ),
+                      ),
