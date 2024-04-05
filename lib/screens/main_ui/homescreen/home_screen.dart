@@ -1,14 +1,11 @@
-
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/ArtiScreen/arti_screen.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/bhajan_screen.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/DonationScreen/donation_screen.dart';
 import 'package:niyam/utils/colours.dart';
-import 'package:niyam/utils/texts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,49 +15,50 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreen extends State<HomeScreen> {
-  final controller  = Get.put(NavigationController());
+  var _selectedIndex = 0;
+  final screens = const [
+    ArtiScreen(),
+    BhajanScreen(),
+    DonationScreen(),
+  ];
+  static const List<TabItem> items = [
+    TabItem(
+      icon: FontAwesomeIcons.om,
+      title: 'आरती',
+    ),
+    TabItem(
+      icon: MingCute.music_3_line,
+      title: 'भजन',
+    ),
+    TabItem(
+        icon: Iconsax.money_send_outline,
+        title: 'दान',
+    ),
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-        child: Obx(
-          () =>  GNav(
-            gap: 10,
-            backgroundColor: Colors.transparent,
-            color: Colors.grey,
-            activeColor: baseColor,
-            tabBackgroundColor: Colors.yellow.shade200.withOpacity(0.5),
-
-            padding: const EdgeInsets.all(10),
-            selectedIndex: controller.selectedIndex.value,
-            onTabChange: (index) => controller.selectedIndex.value = index,
-
-            tabs: const [
-              GButton(
-                icon: FontAwesomeIcons.om,
-                text: arti,
-              ),
-              GButton(
-                icon: MingCute.music_3_line,
-                text: bhajan,
-              ),
-              GButton(icon: Iconsax.money_send_outline, text: donation),
-            ],
-          ),
+        bottomNavigationBar:Container(
+          padding:const EdgeInsets.only( top:7,right: 20, left: 20),
+            color: const Color(0xff3c0008),
+            child:BottomBarFloating(
+              items: items,
+              backgroundColor: Colors.transparent,
+              color: Colors.grey,
+              colorSelected:baseColor.shade600,
+              indexSelected: _selectedIndex,
+              paddingVertical: 3,
+              onTap: (int index) => setState(() {
+                _selectedIndex = index;
+              }),
+            ),
         ),
-      ),
-    body: Obx(() => controller.screens[controller.selectedIndex.value]),
+
+        body: screens[_selectedIndex]
     );
   }
 }
 
-class NavigationController extends GetxController{
-final Rx<int> selectedIndex = 0.obs;
-final screens = const [
-  ArtiScreen(),
-  BhajanScreen(),
-  DonationScreen(),
-];
-}

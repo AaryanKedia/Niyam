@@ -27,3 +27,19 @@ const balajiMahraj = "।। पौढ़णो श्री बालाजी 
 
 
   // ARTI PAGES SUBPART
+
+  const ganeshArtiAppbar = "श्री गणेश आरती";
+  const ambeArtiAppbar = "श्री अंबे जी आरती";
+  const ramStutiAppbar = "श्री राम स्तुति";
+  const jagdeshartiAppbar = "श्री जगदीश जी आरती";
+  const sankatMochanAppbar = "श्री संकटमोचन जी आरती";
+  const hanumanChalisaAppbar = "श्री हनुमान चालीसा";
+  const bhogArtiAppbar = "भोग आरती";
+  const lhrlhrAppbar = "लहर-लहर लहराये रे";
+  const nowChaliAppbar = "मेरी नाव चली";
+  const jhankiAppbar = "झाँकी बालाजी की";
+  const bajrangBanAppbar = "बजरंग बाण";
+  const hanumanJaykaraAppbar = "श्री हनुमानजी जयकारा";
+  const jaiJaikarAppbar = "जय जयकार";
+  const bhagwanKoAppbar = "पौढ़णो श्री भगवान को";
+  const balajiMahrajAppbar = "पौढ़णो श्री बालाजी महाराज को";
