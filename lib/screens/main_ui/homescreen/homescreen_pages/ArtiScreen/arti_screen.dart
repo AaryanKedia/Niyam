@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
+import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/AboutUsScreen/AboutUsWidget/about_us_widget.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/ArtiScreen/ArtiOptionScreens/artis.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/ArtiScreen/artiWidgets/arti_option_widget.dart';
 import 'package:niyam/utils/colours.dart';
@@ -135,17 +135,11 @@ class ArtiScreen extends StatelessWidget {
                         ),
                       ),
 
-                      Positioned(
-                         right: 8,
-                        top: 1,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 20,top: 10),
-                          child: Icon(Iconsax.information_outline,size: 30,color: Colors.white60,),
-                        ),
-                      ),
+                      AboutUsWidget(),
                     ],
                   ),
                 ),
+                const SizedBox(height: 10,),
                 Expanded(
                   child: ListView.builder(
                     itemCount: text.length, // Adjust the itemCount as needed
@@ -172,3 +166,5 @@ class ArtiScreen extends StatelessWidget {
     );
   }
 }
+
+

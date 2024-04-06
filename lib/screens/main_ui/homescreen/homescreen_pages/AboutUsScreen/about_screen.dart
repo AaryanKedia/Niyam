@@ -2,23 +2,23 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:niyam/utils/colours.dart';
 
-class ArtisScreen extends StatefulWidget {
+class AboutScreen extends StatefulWidget {
   final String documentId;
   final String name;
   final List<String> lines;
 
-  const ArtisScreen(
+  const AboutScreen(
       {super.key,
       required this.documentId,
       required this.name,
       required this.lines});
 
   @override
-  State<ArtisScreen> createState() => _ArtisScreenState();
+  State<AboutScreen> createState() => _AboutScreenState();
 }
 
-class _ArtisScreenState extends State<ArtisScreen> {
-  late Stream<DocumentSnapshot> artiStream;
+class _AboutScreenState extends State<AboutScreen> {
+  late Stream<DocumentSnapshot> aboutStream;
 
   @override
   void initState() {
@@ -27,11 +27,11 @@ class _ArtisScreenState extends State<ArtisScreen> {
   }
 
   void getOnTheLoad() {
-    artiStream = DatabaseMethods().getArtiDetails(widget.documentId);
+    aboutStream = DatabaseMethods().getAboutDetails(widget.documentId);
     setState(() {});
   }
 
-  Widget displayArtiDetails(DocumentSnapshot snapshot) {
+  Widget displayAboutDetails(DocumentSnapshot snapshot) {
     var data = snapshot.data() as Map<String, dynamic>?;
 
     if (data == null) {
@@ -107,7 +107,7 @@ class _ArtisScreenState extends State<ArtisScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: StreamBuilder<DocumentSnapshot>(
-                  stream: artiStream,
+                  stream: aboutStream,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
@@ -130,7 +130,7 @@ class _ArtisScreenState extends State<ArtisScreen> {
                       );
                     }
 
-                    return displayArtiDetails(snapshot.data!);
+                    return displayAboutDetails(snapshot.data!);
                   },
                 ),
               ),
@@ -143,9 +143,9 @@ class _ArtisScreenState extends State<ArtisScreen> {
 }
 
 class DatabaseMethods {
-  Stream<DocumentSnapshot> getArtiDetails(String documentId) {
+  Stream<DocumentSnapshot> getAboutDetails(String documentId) {
     return FirebaseFirestore.instance
-        .collection('arti_menu')
+        .collection('about_screen')
         .doc(documentId)
         .snapshots();
   }

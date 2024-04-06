@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
+import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/AboutUsScreen/AboutUsWidget/about_us_widget.dart';
 import 'package:niyam/utils/colours.dart';
 import 'package:niyam/utils/sizes.dart';
 import 'package:niyam/utils/texts.dart';
@@ -40,14 +40,7 @@ class BhajanScreen extends StatelessWidget{
                           ),
                         ),
 
-                        Positioned(
-                          right: 8,
-                          top: 1,
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 20,top: 10),
-                            child: Icon(Iconsax.information_outline,size: 30,color: Colors.white60,),
-                          ),
-                        ),
+                        AboutUsWidget(),
                       ],
                     ),
                   ),

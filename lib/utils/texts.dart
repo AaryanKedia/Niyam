@@ -43,3 +43,8 @@ const balajiMahraj = "।। पौढ़णो श्री बालाजी 
   const jaiJaikarAppbar = "जय जयकार";
   const bhagwanKoAppbar = "पौढ़णो श्री भगवान को";
   const balajiMahrajAppbar = "पौढ़णो श्री बालाजी महाराज को";
+
+
+  //About us
+
+  const aboutUsAppbar = "हमारा परिचय";
