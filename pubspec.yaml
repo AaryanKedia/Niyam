@@ -27,6 +27,10 @@ dependencies:
   cloud_firestore: ^4.16.0
   icons_plus: ^5.0.0
   awesome_bottom_bar: ^1.2.4
+  url_launcher: ^6.2.5
+  pay: ^2.0.0
+  upi_india: ^3.0.1
+  firebase_storage: ^11.7.0
 
 dev_dependencies:
   flutter_test:

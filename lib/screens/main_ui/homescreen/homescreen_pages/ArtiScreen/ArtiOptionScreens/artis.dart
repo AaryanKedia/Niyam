@@ -6,12 +6,13 @@ class ArtisScreen extends StatefulWidget {
   final String documentId;
   final String name;
   final List<String> lines;
+  final double size;
 
   const ArtisScreen(
       {super.key,
       required this.documentId,
       required this.name,
-      required this.lines});
+      required this.lines, required this.size});
 
   @override
   State<ArtisScreen> createState() => _ArtisScreenState();
@@ -39,7 +40,7 @@ class _ArtisScreenState extends State<ArtisScreen> {
           child: Text(
         'कृपया अपना इंटरनेट चालू करें और\n पुनः प्रयास करें',
         style: TextStyle(
-            color: baseColor.shade900, fontSize: 20, fontFamily: 'hind'),
+            color: baseColor.shade900, fontSize: widget.size, fontFamily: 'hind'),
         textAlign: TextAlign.center,
       ));
     }
@@ -53,9 +54,9 @@ class _ArtisScreenState extends State<ArtisScreen> {
             children: [
               Text(
                 data[widget.lines[index]] as String,
-                style: const TextStyle(
+                style: TextStyle(
                   color: baseColor,
-                  fontSize: 20,
+                  fontSize: widget.size,
                   fontFamily: 'hind_medium',
                 ),
                 textAlign: TextAlign.center,
@@ -123,7 +124,7 @@ class _ArtisScreenState extends State<ArtisScreen> {
                           'कृपया व्यवस्थापक से बात करें',
                           style: TextStyle(
                               color: baseColor.shade900,
-                              fontSize: 20,
+                              fontSize: widget.size,
                               fontFamily: 'hind'),
                           textAlign: TextAlign.center,
                         ),

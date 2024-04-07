@@ -32,27 +32,27 @@ class ArtiScreen extends StatelessWidget {
     const List<Widget> screens =[
 
       // Ganesh Arti
-      ArtisScreen(documentId: 'ganesh_arti',name: ganeshArtiAppbar, lines: ["space","space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12",],),
+      ArtisScreen(documentId: 'ganesh_arti',name: ganeshArtiAppbar, size: 20,lines: ["space","space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12",],),
 
       // Ambe Arti
-      ArtisScreen(documentId: 'ambe_arti',name:ambeArtiAppbar,lines: ["space", "line2", "line3", "line4","space", "line5", "line6","line4","space", "line7", "line8","line4","space","line9","line10","line4",
+      ArtisScreen(documentId: 'ambe_arti',name:ambeArtiAppbar,size: 20,lines: ["space", "line2", "line3", "line4","space", "line5", "line6","line4","space", "line7", "line8","line4","space","line9","line10","line4",
         "space","line11","line12","line4","space","line13","line14","line4","space","line15","line16","line4","space","line17","line18","line4","space","line19","line20","line4","space","line21","line22",
         "line4","space","line23","line24","line4","space","line25","line26","line4","space","line27","line28","line4","space",],),
 
       // Ram Stuti
-      ArtisScreen(documentId: 'ram_stuti',name: ramStutiAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14",
+      ArtisScreen(documentId: 'ram_stuti',name: ramStutiAppbar, size: 20,lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14",
         "space","line15","line16","line17","space","line18","line19","line20","space",],),
 
       // Jagdish Arti
-      ArtisScreen(documentId: 'jagdish_arti',name: jagdeshartiAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13",
+      ArtisScreen(documentId: 'jagdish_arti',name: jagdeshartiAppbar,size: 20, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13",
         "line14","line15","line16","line17","line18","line19","line20","space",],),
 
       //Sankat Mochan
-      ArtisScreen(documentId: 'sankat_mochan',name: sankatMochanAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13",
+      ArtisScreen(documentId: 'sankat_mochan',name: sankatMochanAppbar, size: 20,lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13",
         "line14","line15","line16","line17","line18","line19","space",],),
 
       // Hanuman Chalisa
-      ArtisScreen(documentId: 'hanuman_chalisa',name: hanumanChalisaAppbar, lines: ["space",
+      ArtisScreen(documentId: 'hanuman_chalisa',name: hanumanChalisaAppbar, size: 20,lines: ["space",
         "line1", "line2", "line3", "line4", "line5", "space","line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14","line15","line16","line17","line18","line19","line20",
         "line21", "line22", "line23", "line24", "line25", "line26", "line27", "line28", "line29", "line30", "line31", "line32","line33","line34","line35","line36","line37","line38","line39","line40",
         "line41", "line42", "line43", "line44", "line45", "line46", "line47", "line48", "line49", "line50", "line51", "line52","line53","line54","line55","line56","line57","line58","line59","line60",
@@ -60,48 +60,48 @@ class ArtiScreen extends StatelessWidget {
         "line81", "line82", "line83", "line84", "line85", "line86", "space","line1","line87", "line88","space",],),
 
       // Bhog Arti
-      ArtisScreen(documentId: 'bhog_arti',name: bhogArtiAppbar, lines: ["space","line1","line2","line3","space","line4","line5","line6","space","line7","line8","line9","space","line10","line11","line12",
+      ArtisScreen(documentId: 'bhog_arti',name: bhogArtiAppbar, size: 20,lines: ["space","line1","line2","line3","space","line4","line5","line6","space","line7","line8","line9","space","line10","line11","line12",
         "space","line13","line14","line15","space","line16","line17","line18","space"],),
 
       // Lhr Lhr
-      ArtisScreen(documentId: 'lhrlhr',name: lhrlhrAppbar, lines: ["space","line1","line2","line1","space","line3","line4","line1","space","line3","line5","line1","space","line3","line6","line1","space",
+      ArtisScreen(documentId: 'lhrlhr',name: lhrlhrAppbar, size: 20,lines: ["space","line1","line2","line1","space","line3","line4","line1","space","line3","line5","line1","space","line3","line6","line1","space",
         "line3","line7","line1","space","line3","line8","line1","space","line3","line9","line1","space","line3","line10","line1","space","line3","line11","line1","space",
       "line12","line13","line14","line15","line16","line17","line18","line19","line20","line21","line22","space","line23","line24","line25","space","line26","line21","line1","space" ],),
 
       // Naw Chali
-      ArtisScreen(documentId: 'now_chali',name: nowChaliAppbar, lines: ["space","line1","line2","line3","line4","space","line5","line6","line7","line8","space","line9","line10",""
+      ArtisScreen(documentId: 'now_chali',name: nowChaliAppbar, size: 20,lines: ["space","line1","line2","line3","line4","space","line5","line6","line7","line8","space","line9","line10",""
           "line11","line12","space","line13","line14","line15","line16","space","line17","line18","line19","line20","line21","space","line22","line23","space",],),
 
       // Jhanki
-      ArtisScreen(documentId: 'jhanki', name: jhankiAppbar, lines: ["space","repeat","line1","space","line2","line3","repeat","space","line4","line5","repeat","space","line6","line7","repeat","space",
+      ArtisScreen(documentId: 'jhanki', name: jhankiAppbar, size: 20,lines: ["space","repeat","line1","space","line2","line3","repeat","space","line4","line5","repeat","space","line6","line7","repeat","space",
         "line8","line9","repeat","space","line10","line11","repeat","space","line12","line13","repeat","space","line14","line15","repeat","space","line16","line17","repeat","space",
         "line18","line19","repeat","space","line20","line21","line22","repeat","space","line23","repeat","space",]),
 
       // Bajrang Ban
-      ArtisScreen(documentId: 'bajrang_ban',name: bajrangBanAppbar, lines: ["space","line1", "line2","space", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12",
+      ArtisScreen(documentId: 'bajrang_ban',name: bajrangBanAppbar,size: 20, lines: ["space","line1", "line2","space", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12",
         "line13","line14","line15","line16","line17","line18","line19","line20","line21", "line22", "line23", "line24", "line25", "line26", "line27", "line28", "line29", "line30", "line31", "line32","line33",
         "line34","line35","line36","line37","line38","line39","line40", "line41", "line42", "line43", "line44", "line45", "line46", "line47", "line48", "line49", "line50", "line51", "line52","line53","line54",
         "line55","line56","line57","line58","line59","line60","line61", "line62", "line63", "line64", "line65", "line66", "line67", "space","line68", "line69", "line70","space" ],),
 
 
       //HanuMan Jaikara
-      ArtisScreen(documentId: 'hanuman_jaikara',name: hanumanJaykaraAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6","line3", "line7", "line8", "line9", "line10", "line11", "line12",
+      ArtisScreen(documentId: 'hanuman_jaikara',name: hanumanJaykaraAppbar,size: 20, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6","line3", "line7", "line8", "line9", "line10", "line11", "line12",
         "line2","line13","line14","line15","line16","line17","line18","line19","line20","line21","line22","line23","line24","line25","line26","line27","line1","line2","line3","line28","line1","line2","line3","line29",
         "line1","line2","line3","line30","line1","line2","line3","line31","line32","line31","space"],),
 
 
       //JaiJaiKar
-      ArtisScreen(documentId: 'jaijaikar',name: jaiJaikarAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14","line15",
+      ArtisScreen(documentId: 'jaijaikar',name: jaiJaikarAppbar, size: 20,lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14","line15",
         "line16","line17","line18","line19","line20","line21","space"],),
 
 
       //Bhagwan Ko
-      ArtisScreen(documentId: 'bhagwan_ko',name: bhagwanKoAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14","line15",
+      ArtisScreen(documentId: 'bhagwan_ko',name: bhagwanKoAppbar,size: 20, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14","line15",
         "line16","line17","line18","line19","line20","line21","line22","space"],),
 
 
       //Balaji Mahraj
-      ArtisScreen(documentId: 'balaji_mahraj',name: balajiMahrajAppbar, lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14",],),
+      ArtisScreen(documentId: 'balaji_mahraj',name: balajiMahrajAppbar, size: 20,lines: ["space","line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9", "line10", "line11", "line12","line13","line14",],),
 
     ];
     return Scaffold(
