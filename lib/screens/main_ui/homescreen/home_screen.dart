@@ -16,10 +16,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreen extends State<HomeScreen> {
   var _selectedIndex = 0;
-  final screens = const [
-    ArtiScreen(),
-    BhajanScreen(),
-    DonationScreen(),
+  final screens = [
+    const ArtiScreen(),
+    const BhajanScreen(),
+    const DonationScreen(),
   ];
   static const List<TabItem> items = [
     TabItem(
