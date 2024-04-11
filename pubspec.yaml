@@ -31,6 +31,10 @@ dependencies:
   pay: ^2.0.0
   upi_india: ^3.0.1
   firebase_storage: ^11.7.0
+  just_audio: ^0.9.37
+  on_audio_query: ^2.9.0
+  get: ^4.6.6
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:

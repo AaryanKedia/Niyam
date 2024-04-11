@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:niyam/utils/colours.dart';
-import 'package:niyam/utils/texts.dart';
 
 class ArtiOptionWidget extends StatelessWidget {
   const ArtiOptionWidget({
@@ -32,7 +30,7 @@ class ArtiOptionWidget extends StatelessWidget {
           text,
           style: TextStyle(
               fontFamily: 'hind_medium',
-              fontSize: 23,
+              fontSize: 21,
               color: baseColor.shade600),
         ),
       ),);
