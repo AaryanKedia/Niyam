@@ -30,9 +30,11 @@ dependencies:
 
   ## icons
   icons_plus: ^5.0.0
-  awesome_bottom_bar: ^1.2.4
   line_icons: ^2.0.3
   font_awesome_flutter: ^10.7.0
+
+  ## Bottom Bar
+  awesome_bottom_bar: ^1.2.4
 
   #launch a URL Dependencies
   url_launcher: ^6.2.5
