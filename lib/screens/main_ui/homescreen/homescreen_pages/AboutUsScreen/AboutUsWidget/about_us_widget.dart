@@ -22,7 +22,7 @@ class AboutUsWidget extends StatelessWidget {
                       builder: (context) => const AboutScreen(
                           documentId: 'aboutUs',
                           name: 'हमारा परिचय',
-                          lines: [])));
+                          lines: ['space','parichay','space','mobile1','mobile2','whatsappNumber','address'])));
             },
             child: const Icon(
               Iconsax.information_outline,

@@ -5,6 +5,16 @@ import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/m
 class CloudStorageController extends GetxController{
   final db = FirebaseFirestore.instance;
 
+  Future<int> getNumberOfSongs() async {
+    QuerySnapshot querySnapshot = await db.collection('songs').get();
+    return (querySnapshot.docs.length);
+    // return querySnapshot.size;
+
+  }
+
+
+
+
   RxList<MySongModel> cloudSongList = RxList<MySongModel>([]);
   RxBool isLoading = true.obs;
   @override
@@ -13,6 +23,8 @@ class CloudStorageController extends GetxController{
     super.onInit();
 
   }
+
+
 
   void getCloudSound() async{
     isLoading.value = true;

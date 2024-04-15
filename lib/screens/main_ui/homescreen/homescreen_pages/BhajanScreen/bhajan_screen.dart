@@ -76,11 +76,11 @@ class BhajanScreen extends StatelessWidget {
                         child: ListTile(
                           title: Text(
                             "${e.title}",
-                            style: const TextStyle(fontSize: 15,color: baseColor),
+                            style: const TextStyle(fontSize: 18,color: baseColor,fontFamily: 'hind_medium'),
                           ),
                           subtitle: Text(
                             "${e.artist}",
-                            style: TextStyle(fontSize: 12,color: baseColor.shade50),
+                            style: TextStyle(fontSize: 15,color: baseColor.shade50,fontFamily: 'hind'),
                           ),
                           leading: Icon(Icons.music_note,color: baseColor.shade900,),
 

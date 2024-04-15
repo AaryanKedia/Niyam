@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/MusicController/music_controller.dart';
+import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/controller/cloud_storage_controller.dart';
+import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/model/my_song_model.dart';
 import '../../../../../../utils/colours.dart';
 
 class MusicPlayerScreen extends StatelessWidget {
   const MusicPlayerScreen({
     super.key,
-    // required this.songTitle, required this.artistName
+
   });
 
-  // final String songTitle;
-  // final String artistName;
 
 
   @override
@@ -18,6 +18,9 @@ class MusicPlayerScreen extends StatelessWidget {
 
 
     MusicController musicController = Get.put(MusicController());
+    CloudStorageController cloudStorageController = Get.put(CloudStorageController());
+
+
 
     return Scaffold(
       extendBodyBehindAppBar: false,
@@ -47,8 +50,8 @@ class MusicPlayerScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 100,
+                 SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.075,
                   ),
                   Container(
                       height: 200,
@@ -67,13 +70,13 @@ class MusicPlayerScreen extends StatelessWidget {
                   Obx(() => Text(
                     musicController.songName.value,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 15, color: baseColor),
+                    style: const TextStyle(fontSize: 20, color: baseColor,fontFamily: 'hind_semi_bold'),
                   ),),
                   const SizedBox(height: 5,),
                   Obx(() => Text(
                     musicController.artistName.value,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 12, color: baseColor.shade50),
+                    style: TextStyle(fontSize: 15, color: baseColor.shade50,fontFamily: 'hind_medium'),
                   ),),
                   SizedBox(height: MediaQuery.sizeOf(context).height * 0.2),
                   Obx(
@@ -109,18 +112,25 @@ class MusicPlayerScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.skip_previous_rounded,
-                        size: 50,
-                        color: baseColor.shade400.withOpacity(0.85),
+                      InkWell(
+                        onTap: ()async{
+                          List<MySongModel> list = cloudStorageController.cloudSongList;
+                          musicController.playPreviousSong( list);
+                        },
+                        child: Icon(
+                          Icons.skip_previous_rounded,
+                          size: 50,
+                          color: baseColor.shade400.withOpacity(0.85),
+                        ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Obx(
                         () => musicController.isPlaying.value
                             ? InkWell(
                                 onTap: () {
+
                                   musicController.pausePlaying();
                                 },
                                 child: Icon(
@@ -138,14 +148,24 @@ class MusicPlayerScreen extends StatelessWidget {
                                   color: baseColor.shade900,
                                 )),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      Icon(
-                        Icons.skip_next_rounded,
-                        size: 50,
-                        color: baseColor.shade400.withOpacity(0.85),
+                      InkWell(
+                        onTap: () async {
+                          List<MySongModel> list = cloudStorageController.cloudSongList;
+                          // int len = await cloudStorageController.getNumberOfSongs();
+                          // int len;
+                          print(list.length);
+                          musicController.playNextSong(list);
+                        },
+                        child: Icon(
+                          Icons.skip_next_rounded,
+                          size: 50,
+                          color: baseColor.shade400.withOpacity(0.85),
+                        ),
                       ),
+
                     ],
                   )
                 ],
