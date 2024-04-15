@@ -16,7 +16,6 @@ class MusicController extends GetxController {
   void playCloudAudio(MySongModel songModel) async {
     songName.value = songModel.title!;
     artistName.value = songModel.artist!;
-    print("Crrent playing ${currentPlaying.value}");
     currentPlaying.value = songModel.id!;
     await player.setAudioSource(AudioSource.uri(Uri.parse(songModel.data!)));
     player.play();
