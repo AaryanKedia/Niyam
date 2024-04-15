@@ -16,6 +16,7 @@ class MusicController extends GetxController {
   void playCloudAudio(MySongModel songModel) async {
     songName.value = songModel.title!;
     artistName.value = songModel.artist!;
+    print("Crrent playing ${currentPlaying.value}");
     currentPlaying.value = songModel.id!;
     await player.setAudioSource(AudioSource.uri(Uri.parse(songModel.data!)));
     player.play();
@@ -29,17 +30,19 @@ class MusicController extends GetxController {
   }
 
   void playNextSong(List<MySongModel> list) {
-    // playPreviousSong(list);
     int nextIndex = currentPlaying.value + 1;
-    print(nextIndex);
-
-    if (nextIndex <= list.length) {
-
+    if (nextIndex >= 0 && nextIndex < list.length) {
       MySongModel nextSong = list[nextIndex];
       playCloudAudio(nextSong);
       currentPlaying.value = nextIndex;
+    } else if (nextIndex == list.length) {
+      // Reached the end of the list, loop back to the first song
+      MySongModel firstSong = list[0];
+      playCloudAudio(firstSong);
+      currentPlaying.value = 0;
     }
   }
+
 
   void playPreviousSong(List<MySongModel> list) {
     int previousIndex = currentPlaying.value - 1;
@@ -47,8 +50,15 @@ class MusicController extends GetxController {
       MySongModel previousSong = list[previousIndex];
       playCloudAudio(previousSong);
       currentPlaying.value = previousIndex;
+    } else if (previousIndex < 0) {
+      // Reached the beginning of the list, loop to the last song
+      int lastIndex = list.length - 1;
+      MySongModel lastSong = list[lastIndex];
+      playCloudAudio(lastSong);
+      currentPlaying.value = lastIndex;
     }
   }
+
 
 
 
