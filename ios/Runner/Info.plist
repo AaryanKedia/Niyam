@@ -30,8 +30,8 @@
 	<string>Main</string>
 	<key>LSApplicationQueriesSchemes</key>
     <array>
-      <string>whatsapp</string>
-      <string>tel</string>
+        <string>whatsapp</string>
+        <string>tel</string>
     </array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
