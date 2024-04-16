@@ -1,4 +1,3 @@
-
 class MySongModel {
   int? id;
   String? title;
@@ -8,16 +7,16 @@ class MySongModel {
   MySongModel({this.id, this.title, this.artist, this.data});
 
   MySongModel.fromJson(Map<String, dynamic> json) {
-    if(json["id"] is int) {
+    if (json["id"] is int) {
       id = json["id"];
     }
-    if(json["title"] is String) {
+    if (json["title"] is String) {
       title = json["title"];
     }
-    if(json["artist"] is String) {
+    if (json["artist"] is String) {
       artist = json["artist"];
     }
-    if(json["data"] is String) {
+    if (json["data"] is String) {
       data = json["data"];
     }
   }

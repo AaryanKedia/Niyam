@@ -42,7 +42,6 @@ class MusicController extends GetxController {
     }
   }
 
-
   void playPreviousSong(List<MySongModel> list) {
     int previousIndex = currentPlaying.value - 1;
     if (previousIndex >= 0) {
@@ -57,9 +56,6 @@ class MusicController extends GetxController {
       currentPlaying.value = lastIndex;
     }
   }
-
-
-
 
   void pausePlaying() async {
     isPlaying.value = false;

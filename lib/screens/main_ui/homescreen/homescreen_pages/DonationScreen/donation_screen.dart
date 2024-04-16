@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/DonationScreen/qr_fetch_widget/qr_fetch_widget.dart';
 
 import '../../../../../utils/colours.dart';
-import '../../../../../utils/sizes.dart';
 import '../../../../../utils/texts.dart';
-import '../AboutUsScreen/AboutUsWidget/about_us_widget.dart';
+import '../../homeScreenWidget/home_header_widget.dart';
 import 'AccountDetails/accout_details.dart';
 
 class DonationScreen extends StatefulWidget {
@@ -34,20 +33,8 @@ class _DonationScreen extends State<DonationScreen> {
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(top: 10),
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Text(
-                            donation,
-                            style: TextStyle(
-                              fontSize: defaultSize * 1.25,
-                              fontFamily: 'hind_bold',
-                              color: baseColor,
-                            ),
-                          ),
-                        ),
-                        AboutUsWidget(),
-                      ],
+                    child: HomeHeaderWidget(
+                      text: donation,
                     ),
                   ),
                   // const SizedBox(height: 20,),
@@ -96,7 +83,9 @@ class _DonationScreen extends State<DonationScreen> {
                               );
                             }
                             if (snapshot.connectionState ==
-                                ConnectionState.done && snapshot.hasData && snapshot.data is String) {
+                                    ConnectionState.done &&
+                                snapshot.hasData &&
+                                snapshot.data is String) {
                               return Container(
                                 // height: 220,
                                 // width: 220,

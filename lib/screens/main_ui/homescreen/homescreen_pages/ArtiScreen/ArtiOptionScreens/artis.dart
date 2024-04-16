@@ -52,14 +52,17 @@ class _ArtisScreenState extends State<ArtisScreen> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              Text(
-                data[widget.lines[index]] as String,
-                style: TextStyle(
-                  color: baseColor,
-                  fontSize: widget.size,
-                  fontFamily: 'hind_medium',
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10),
+                child: Text(
+                  data[widget.lines[index]] as String,
+                  style: TextStyle(
+                    color: baseColor,
+                    fontSize: widget.size,
+                    fontFamily: 'hind_medium',
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 10,

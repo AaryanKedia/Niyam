@@ -5,9 +5,8 @@ import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/M
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/music_player_screen.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/controller/cloud_storage_controller.dart';
 import '../../../../../utils/colours.dart';
-import '../../../../../utils/sizes.dart';
 import '../../../../../utils/texts.dart';
-import '../AboutUsScreen/AboutUsWidget/about_us_widget.dart';
+import '../../homeScreenWidget/home_header_widget.dart';
 
 class BhajanScreen extends StatelessWidget {
   const BhajanScreen({super.key});
@@ -37,20 +36,8 @@ class BhajanScreen extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(top: 10),
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Text(
-                          bhajan,
-                          style: TextStyle(
-                            fontSize: defaultSize * 1.25,
-                            fontFamily: 'hind_bold',
-                            color: baseColor,
-                          ),
-                        ),
-                      ),
-                      AboutUsWidget(),
-                    ],
+                  child:HomeHeaderWidget(
+                    text: bhajan,
                   ),
                 ),
 

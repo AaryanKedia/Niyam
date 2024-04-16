@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/MusicController/music_controller.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/controller/cloud_storage_controller.dart';
-import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/model/my_song_model.dart';
 import '../../../../../../utils/colours.dart';
+import 'MusicWidget/music_controller_widget.dart';
+import 'MusicWidget/music_details_widget.dart';
+import 'MusicWidget/music_logo_widget.dart';
+import 'MusicWidget/music_slider_widget.dart';
 
 class MusicPlayerScreen extends StatelessWidget {
   const MusicPlayerScreen({
@@ -47,137 +50,27 @@ class MusicPlayerScreen extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.075,
                   ),
-                  Container(
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white.withOpacity(0.3)),
-                      child: const Icon(
-                        Icons.music_note_rounded,
-                        size: 100,
-                        color: gradient1,
-                      )),
+                  const MusicLogoWidget(),
                   const SizedBox(
                     height: 50,
                   ),
-                  Obx(
-                    () => Text(
-                      musicController.songName.value,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontSize: 20,
-                          color: baseColor,
-                          fontFamily: 'hind_semi_bold'),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Obx(
-                    () => Text(
-                      musicController.artistName.value,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: baseColor.shade50,
-                          fontFamily: 'hind_medium'),
-                    ),
-                  ),
+
+                  //SONG  NAME AND ARTIST NAME
+                  MusicDetailsWidget(musicController: musicController),
+
                   SizedBox(height: MediaQuery.sizeOf(context).height * 0.2),
-                  Obx(
-                    () => Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "${musicController.currentTime}",
-                            style: TextStyle(color: baseColor.shade200),
-                          ),
-                          Expanded(
-                            child: Slider(
-                              value: musicController.sliderValue.value.clamp(
-                                  0.0, musicController.sliderValue.value),
-                              onChanged: (value) {
-                                musicController.sliderValue.value = value;
-                                Duration songPosition =
-                                    Duration(seconds: value.toInt());
-                                musicController.changeSongSlider(songPosition);
-                              },
-                              max: musicController.sliderMaxValue.value,
-                              min: 0,
-                              activeColor: baseColor,
-                              inactiveColor: gradient2.withOpacity(0.6),
-                              // overlayColor: baseColor.shade400,
-                            ),
-                          ),
-                          Text(
-                            "${musicController.totalTime}",
-                            style: TextStyle(color: baseColor.shade200),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+
+                  // SLIDER CONTROLLER
+                  MusicSliderWidget(musicController: musicController),
+
                   const SizedBox(height: 10),
                   const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () async {
-                          List<MySongModel> list =
-                              cloudStorageController.cloudSongList;
-                          musicController.playPreviousSong(list);
-                        },
-                        child: Icon(
-                          Icons.skip_previous_rounded,
-                          size: 50,
-                          color: baseColor.shade400.withOpacity(0.85),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Obx(
-                        () => musicController.isPlaying.value
-                            ? InkWell(
-                                onTap: () {
-                                  musicController.pausePlaying();
-                                },
-                                child: Icon(
-                                  Icons.pause_circle_outline_rounded,
-                                  size: 80,
-                                  color: baseColor.shade900,
-                                ))
-                            : InkWell(
-                                onTap: () {
-                                  musicController.resumePlaying();
-                                },
-                                child: Icon(
-                                  Icons.play_circle_outline_rounded,
-                                  size: 80,
-                                  color: baseColor.shade900,
-                                )),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          List<MySongModel> list =
-                              cloudStorageController.cloudSongList;
-                          musicController.playNextSong(list);
-                        },
-                        child: Icon(
-                          Icons.skip_next_rounded,
-                          size: 50,
-                          color: baseColor.shade400.withOpacity(0.85),
-                        ),
-                      ),
-                    ],
-                  )
+
+                  // MUSIC CONTROLLER
+
+                  MusicControllerWidget(
+                      cloudStorageController: cloudStorageController,
+                      musicController: musicController)
                 ],
               ),
             ),
