@@ -92,6 +92,8 @@ class _AboutScreenState extends State<AboutScreen> {
             const SizedBox(
               height: 10,
             ),
+            // // MOBILE NUMEBRS
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -102,6 +104,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       color: baseColor,
                       fontSize: 20),
                 ),
+
                 Column(
                   children: [
                     InkWell(
@@ -160,6 +163,7 @@ class _AboutScreenState extends State<AboutScreen> {
             const SizedBox(
               height: 30,
             ),
+            // WHATSAPP PART OF THE CODE
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -185,6 +189,8 @@ class _AboutScreenState extends State<AboutScreen> {
             const SizedBox(
               height: 10,
             ),
+
+            // FACEBOOK PART OF THE CODE
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -210,6 +216,7 @@ class _AboutScreenState extends State<AboutScreen> {
               height: 20,
             ),
 
+            // ADDRESS PART OF THE CODE
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
@@ -270,7 +277,10 @@ class _AboutScreenState extends State<AboutScreen> {
                   ],
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),
