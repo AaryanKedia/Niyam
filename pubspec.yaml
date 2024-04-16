@@ -45,6 +45,8 @@ dependencies:
 
   ##State Change Dependencies
   get: ^4.6.6
+  firebase_crashlytics: ^3.5.2
+  firebase_analytics: ^10.10.2
 
 
 dev_dependencies:

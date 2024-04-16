@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,21 +49,12 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAQU6qMyOI38cjl9sFMMakZOlPfbUn1K_E',
-    appId: '1:494907469864:web:1454ad113d5b510198051d',
-    messagingSenderId: '494907469864',
-    projectId: 'balajidham-be925',
-    authDomain: 'balajidham-be925.firebaseapp.com',
-    storageBucket: 'balajidham-be925.appspot.com',
-    measurementId: 'G-F4X94MLHMW',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCVrMRsM86KvWcv3o_q9Hv2XP_8dLZT2Jw',
     appId: '1:494907469864:android:1c520416b0506d1198051d',
     messagingSenderId: '494907469864',
     projectId: 'balajidham-be925',
+    databaseURL: 'https://balajidham-be925-default-rtdb.firebaseio.com',
     storageBucket: 'balajidham-be925.appspot.com',
   );
 
@@ -69,6 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:494907469864:ios:74b04d518e13e9ef98051d',
     messagingSenderId: '494907469864',
     projectId: 'balajidham-be925',
+    databaseURL: 'https://balajidham-be925-default-rtdb.firebaseio.com',
     storageBucket: 'balajidham-be925.appspot.com',
     iosBundleId: 'com.example.niyam',
   );

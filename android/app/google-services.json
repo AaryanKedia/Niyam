@@ -1,10 +1,30 @@
 {
   "project_info": {
     "project_number": "494907469864",
+    "firebase_url": "https://balajidham-be925-default-rtdb.firebaseio.com",
     "project_id": "balajidham-be925",
     "storage_bucket": "balajidham-be925.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494907469864:android:9572a671a3d9f46c98051d",
+        "android_client_info": {
+          "package_name": "com.example.balaji_dham_controller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVrMRsM86KvWcv3o_q9Hv2XP_8dLZT2Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:494907469864:android:1c520416b0506d1198051d",
