@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:niyam/utils/colours.dart';
 import 'package:url_launcher/url_launcher.dart'; // Use url_launcher directly
@@ -229,12 +230,32 @@ class _AboutScreenState extends State<AboutScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                   Text(
-                     data['address'] as String,
-                     style: TextStyle(
-                         fontFamily: 'hind_medium',
-                         color: baseColor.shade900,
-                         fontSize: 20),
+                   InkWell(
+                     onTap: (){
+
+                         Clipboard.setData(ClipboardData(text: data['address'] as String));
+                         ScaffoldMessenger.of(context).showSnackBar(
+                           SnackBar(
+                             shape: const RoundedRectangleBorder(
+                                 borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50))
+                             ),
+                             backgroundColor: const Color(0xff3c0008),
+
+                             elevation: 2,
+                             duration: const Duration(seconds: 1),
+                             content: Text("Address Copied",style: TextStyle(color: baseColor.shade500,fontWeight: FontWeight.bold),textAlign: TextAlign.center ,),
+                           ),
+                         );
+
+
+                     },
+                     child: Text(
+                       data['address'] as String,
+                       style: TextStyle(
+                           fontFamily: 'hind_medium',
+                           color: baseColor.shade900,
+                           fontSize: 20),
+                     ),
                    ),
                    InkWell(
                      onTap: (){
