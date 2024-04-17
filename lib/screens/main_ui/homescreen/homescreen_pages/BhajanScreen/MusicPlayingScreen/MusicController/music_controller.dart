@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/model/my_song_model.dart';
@@ -77,7 +78,9 @@ class MusicController extends GetxController {
         sliderValue.value = event.inSeconds.toDouble();
       });
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 }
