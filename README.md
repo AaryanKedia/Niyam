@@ -1,6 +1,6 @@
-# niyam
+# Niyam Diary
 
-A new Flutter project.
+A Flutter project for Shri Narsimha Balaji Maharaj Dham.
 
 ## Getting Started
 
