@@ -20,7 +20,7 @@ class MusicPlayerScreen extends StatelessWidget {
         Get.put(CloudStorageController());
 
     return WillPopScope(
-      onWillPop: ()async{
+      onWillPop: () async {
         if (musicController.isPlaying.value) {
           musicController.pausePlaying();
           return true;
@@ -33,8 +33,10 @@ class MusicPlayerScreen extends StatelessWidget {
           backgroundColor: const Color(0xff3c0008),
           leading: InkWell(
               onTap: () {
-                Navigator.of(context).pop();
-                musicController.pausePlaying();
+                if (musicController.isPlaying.value) {
+                  Navigator.of(context).pop();
+                  musicController.pausePlaying();
+                }
               },
               child: Icon(
                 Icons.arrow_back_ios_new_rounded,
@@ -48,8 +50,8 @@ class MusicPlayerScreen extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
-                gradient:
-                    RadialGradient(colors: [gradient1, gradient2], radius: 1.25),
+                gradient: RadialGradient(
+                    colors: [gradient1, gradient2], radius: 1.25),
               ),
               child: SingleChildScrollView(
                 child: Column(
