@@ -65,9 +65,7 @@ class _AboutScreenState extends State<AboutScreen> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 10,
-            ),
+
             Text(
               data[widget.lines[1]] as String,
               style: const TextStyle(

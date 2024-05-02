@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:niyam/utils/colours.dart';
+import 'package:niyam/utils/texts.dart';
 
 class ArtisScreen extends StatefulWidget {
   final String documentId;
@@ -8,11 +10,10 @@ class ArtisScreen extends StatefulWidget {
   final List<String> lines;
   final double size;
 
-  const ArtisScreen(
-      {super.key,
-      required this.documentId,
-      required this.name,
-      required this.lines, required this.size});
+  const ArtisScreen({super.key,
+    required this.documentId,
+    required this.name,
+    required this.lines, required this.size});
 
   @override
   State<ArtisScreen> createState() => _ArtisScreenState();
@@ -20,11 +21,34 @@ class ArtisScreen extends StatefulWidget {
 
 class _ArtisScreenState extends State<ArtisScreen> {
   late Stream<DocumentSnapshot> artiStream;
+  late BannerAd bannerAd;
+  bool isAdLoaded = false;
+
+  initBannerAd() {
+    bannerAd = BannerAd(
+        size: AdSize.banner,
+        adUnitId:testID,
+        listener: BannerAdListener(
+          onAdLoaded: (ad){
+            setState(() {
+              isAdLoaded = true;
+            });
+          },
+          onAdFailedToLoad: (ad ,error){
+            ad.dispose();
+            print("Ad ERROR : $error");
+          }
+        ),
+        request: const AdRequest());
+
+    bannerAd.load();
+  }
 
   @override
   void initState() {
     super.initState();
     getOnTheLoad();
+    initBannerAd();
   }
 
   void getOnTheLoad() {
@@ -38,22 +62,27 @@ class _ArtisScreenState extends State<ArtisScreen> {
     if (data == null) {
       return Center(
           child: Text(
-        'कृपया अपना इंटरनेट चालू करें और\n पुनः प्रयास करें',
-        style: TextStyle(
-            color: baseColor.shade900, fontSize: widget.size, fontFamily: 'hind'),
-        textAlign: TextAlign.center,
-      ));
+            'कृपया अपना इंटरनेट चालू करें और\n पुनः प्रयास करें',
+            style: TextStyle(
+                color: baseColor.shade900,
+                fontSize: widget.size,
+                fontFamily: 'hind'),
+            textAlign: TextAlign.center,
+          ));
     }
 
     return ListView.builder(
       itemCount: widget.lines.length, // Adjust the itemCount as needed
       itemBuilder: (context, index) {
         return SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Text(
                   data[widget.lines[index]] as String,
                   style: TextStyle(
@@ -79,6 +108,7 @@ class _ArtisScreenState extends State<ArtisScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: InkWell(
@@ -116,15 +146,15 @@ class _ArtisScreenState extends State<ArtisScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
                           child: CircularProgressIndicator(
-                        color: baseColor,
-                      ));
+                            color: baseColor,
+                          ));
                     }
 
                     if (!snapshot.hasData) {
                       return Center(
                         child: Text(
                           'कुछ तकनीकी समस्या है,\n'
-                          'कृपया व्यवस्थापक से बात करें',
+                              'कृपया व्यवस्थापक से बात करें',
                           style: TextStyle(
                               color: baseColor.shade900,
                               fontSize: widget.size,
@@ -142,6 +172,11 @@ class _ArtisScreenState extends State<ArtisScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: isAdLoaded ? SizedBox(
+        height: bannerAd.size.height.toDouble(),
+        width: bannerAd.size.width.toDouble(),
+        child: AdWidget(ad: bannerAd,),
+      ):const SizedBox(),
     );
   }
 }

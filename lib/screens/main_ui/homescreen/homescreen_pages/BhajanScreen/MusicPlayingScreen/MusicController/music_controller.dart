@@ -13,6 +13,7 @@ class MusicController extends GetxController {
   RxString songName = "".obs;
   RxString artistName = "".obs;
   RxInt currentPlaying = 0.obs;
+  RxBool backAvail = false.obs;
 
   void playCloudAudio(MySongModel songModel) async {
     songName.value = songModel.title!;
@@ -22,6 +23,7 @@ class MusicController extends GetxController {
     player.play();
     updatePosition();
     isPlaying.value = true;
+    backAvail.value = true;
   }
 
   void resumePlaying() async {

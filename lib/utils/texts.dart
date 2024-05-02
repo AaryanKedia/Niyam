@@ -48,3 +48,8 @@ const balajiMahraj = "।। पौढ़णो श्री बालाजी 
   //About us
 
   const aboutUsAppbar = "हमारा परिचय";
+
+
+  // AD UNIT ID's
+   const realID = "ca-app-pub-7290989728192755/1636167568";
+   const testID = "ca-app-pub-3940256099942544/9214589741";

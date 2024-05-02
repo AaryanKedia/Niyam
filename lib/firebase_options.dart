@@ -65,6 +65,6 @@ class DefaultFirebaseOptions {
     projectId: 'balajidham-be925',
     databaseURL: 'https://balajidham-be925-default-rtdb.firebaseio.com',
     storageBucket: 'balajidham-be925.appspot.com',
-    iosBundleId: 'com.example.niyam',
+    iosBundleId: 'com.balajidham.niyam_diary',
   );
 }

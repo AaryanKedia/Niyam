@@ -21,9 +21,23 @@ class MusicPlayerScreen extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        if (musicController.isPlaying.value) {
+        if (musicController.backAvail.value) {
           musicController.pausePlaying();
+          musicController.backAvail.value = false;
           return true;
+        }else{
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50))
+              ),
+              backgroundColor: const Color(0xff3c0008),
+
+              elevation: 2,
+              duration: const Duration(seconds: 1),
+              content: Text("कृपया भजन लोड होने दें",style: TextStyle(color: baseColor.shade500,fontWeight: FontWeight.bold),textAlign: TextAlign.center ,),
+            ),
+          );
         }
         return false;
       },
@@ -33,9 +47,25 @@ class MusicPlayerScreen extends StatelessWidget {
           backgroundColor: const Color(0xff3c0008),
           leading: InkWell(
               onTap: () {
-                if (musicController.isPlaying.value) {
-                  Navigator.of(context).pop();
+                if (musicController.backAvail.value) {
                   musicController.pausePlaying();
+                  musicController.backAvail.value = false;
+                  Navigator.of(context).pop();
+
+                }
+                else{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50))
+                      ),
+                      backgroundColor: const Color(0xff3c0008),
+
+                      elevation: 2,
+                      duration: const Duration(seconds: 1),
+                      content: Text("कृपया भजन लोड होने दें",style: TextStyle(fontSize:15,color: baseColor.shade500,fontWeight: FontWeight.bold),textAlign: TextAlign.center ,),
+                    ),
+                  );
                 }
               },
               child: Icon(

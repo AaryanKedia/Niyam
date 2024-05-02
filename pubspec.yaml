@@ -49,6 +49,7 @@ dependencies:
   firebase_analytics: ^10.10.2
   firebase_performance: ^0.9.4+2
   flutter_local_notifications: ^17.0.1
+  google_mobile_ads: ^5.0.0
 
 
 dev_dependencies:
