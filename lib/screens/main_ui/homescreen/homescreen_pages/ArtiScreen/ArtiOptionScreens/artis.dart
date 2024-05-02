@@ -27,7 +27,7 @@ class _ArtisScreenState extends State<ArtisScreen> {
   initBannerAd() {
     bannerAd = BannerAd(
         size: AdSize.banner,
-        adUnitId:testID,
+        adUnitId:realID,
         listener: BannerAdListener(
           onAdLoaded: (ad){
             setState(() {
