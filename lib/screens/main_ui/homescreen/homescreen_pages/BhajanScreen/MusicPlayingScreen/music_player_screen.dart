@@ -101,7 +101,10 @@ class MusicPlayerScreen extends StatelessWidget {
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.2),
 
                     // SLIDER CONTROLLER
-                    MusicSliderWidget(musicController: musicController),
+                    MusicSliderWidget(
+                        musicController: musicController
+                    ),
+
 
                     const SizedBox(height: 10),
                     const SizedBox(height: 10),

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/model/my_song_model.dart';
+import '../../controller/cloud_storage_controller.dart';
 
 class MusicController extends GetxController {
   final player = AudioPlayer();
@@ -14,14 +15,18 @@ class MusicController extends GetxController {
   RxString artistName = "".obs;
   RxInt currentPlaying = 0.obs;
   RxBool backAvail = false.obs;
+  CloudStorageController cloudStorageController =
+  Get.put(CloudStorageController());
 
-  void playCloudAudio(MySongModel songModel) async {
+
+  Future<void> playCloudAudio(MySongModel songModel,) async {
     songName.value = songModel.title!;
     artistName.value = songModel.artist!;
     currentPlaying.value = songModel.id!;
     await player.setAudioSource(AudioSource.uri(Uri.parse(songModel.data!)));
     player.play();
-    updatePosition();
+    List<MySongModel> list = cloudStorageController.cloudSongList;
+    updatePosition(list);
     isPlaying.value = true;
     backAvail.value = true;
   }
@@ -31,31 +36,32 @@ class MusicController extends GetxController {
     await player.play();
   }
 
-  void playNextSong(List<MySongModel> list) {
+  Future<void> playNextSong(List<MySongModel> list) async {
     int nextIndex = currentPlaying.value + 1;
     if (nextIndex >= 0 && nextIndex < list.length) {
       MySongModel nextSong = list[nextIndex];
-      playCloudAudio(nextSong);
+      await playCloudAudio(nextSong);
       currentPlaying.value = nextIndex;
     } else if (nextIndex == list.length) {
       // Reached the end of the list, loop back to the first song
       MySongModel firstSong = list[0];
-      playCloudAudio(firstSong);
+      await playCloudAudio(firstSong);
       currentPlaying.value = 0;
     }
+    // await player.seekToNext();
   }
 
-  void playPreviousSong(List<MySongModel> list) {
+  void playPreviousSong(List<MySongModel> list) async{
     int previousIndex = currentPlaying.value - 1;
     if (previousIndex >= 0) {
       MySongModel previousSong = list[previousIndex];
-      playCloudAudio(previousSong);
+      await playCloudAudio(previousSong);
       currentPlaying.value = previousIndex;
     } else if (previousIndex < 0) {
       // Reached the beginning of the list, loop to the last song
       int lastIndex = list.length - 1;
       MySongModel lastSong = list[lastIndex];
-      playCloudAudio(lastSong);
+      await playCloudAudio(lastSong);
       currentPlaying.value = lastIndex;
     }
   }
@@ -69,17 +75,25 @@ class MusicController extends GetxController {
     player.seek(position);
   }
 
-  void updatePosition() async {
+  void updatePosition(List<MySongModel> songList) async {
     try {
       player.durationStream.listen((event) {
-        totalTime.value = event.toString().split(".")[0];
-        sliderMaxValue.value = event!.inSeconds.toDouble();
+        if (event != null) {
+          totalTime.value = event.toString().split(".")[0];
+          sliderMaxValue.value = event.inSeconds.toDouble();
+        }
       });
+
       player.positionStream.listen((event) {
         currentTime.value = event.toString().split(".")[0];
         sliderValue.value = event.inSeconds.toDouble();
+
+        // Check if the current time equals the total time
+        if (sliderValue.value == sliderMaxValue.value ) {
+          playNextSong(songList);
+        }
       });
-    } catch (e) {
+    }  catch (e) {
       if (kDebugMode) {
         print(e);
       }

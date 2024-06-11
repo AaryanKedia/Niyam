@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-
 import '../../../../../../../utils/colours.dart';
 import '../MusicController/music_controller.dart';
 
@@ -29,7 +27,7 @@ class MusicSliderWidget extends StatelessWidget {
               child: Slider(
                 value: musicController.sliderValue.value
                     .clamp(0.0, musicController.sliderValue.value),
-                onChanged: (value) {
+                onChanged: (value) async {
                   musicController.sliderValue.value = value;
                   Duration songPosition = Duration(seconds: value.toInt());
                   musicController.changeSongSlider(songPosition);
