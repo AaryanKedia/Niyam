@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/MusicController/music_controller.dart';
@@ -12,21 +11,17 @@ import '../../home_screen.dart';
 class BhajanScreen extends StatelessWidget {
   const BhajanScreen({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
-
-
-    CloudStorageController cloudSongController = Get.put( CloudStorageController());
+    CloudStorageController cloudSongController = Get.put(CloudStorageController());
     MusicController musicController = Get.put(MusicController());
+
     return WillPopScope(
-      onWillPop: () async{
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+      onWillPop: () async {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
         return true;
       },
       child: Scaffold(
-
         extendBodyBehindAppBar: false,
         body: Container(
           color: const Color(0xff3c0008),
@@ -42,46 +37,50 @@ class BhajanScreen extends StatelessWidget {
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(top: 10),
-                    child:HomeHeaderWidget(
+                    child: HomeHeaderWidget(
                       text: bhajan,
                     ),
                   ),
-
                   // SONG LISTING
-
-            Expanded(
-              child: Obx(
-                    () => cloudSongController.isLoading.value
-                    ? const Center(child: CircularProgressIndicator(
-                      color: baseColor,
-                    ))
-                    :
-                    Column(
-                      children: cloudSongController.cloudSongList.value.map((e) => Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                  Expanded(
+                    child: Obx(
+                          () => cloudSongController.isLoading.value
+                          ? const Center(
+                        child: CircularProgressIndicator(
+                          color: baseColor,
                         ),
-                        child: InkWell(
-                          onTap: (){
-                            musicController.playCloudAudio(e);
-                            Get.to(const MusicPlayerScreen());
-                          },
-                          child: ListTile(
-                            title: Text(
-                              "${e.title}",
-                              style: const TextStyle(fontSize: 18,color: baseColor,fontFamily: 'hind_medium'),
+                      )
+                          : ListView(
+                        children: cloudSongController.cloudSongList.value.map((e) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            subtitle: Text(
-                              "${e.artist}",
-                              style: TextStyle(fontSize: 15,color: baseColor.shade50,fontFamily: 'hind'),
+                            child: InkWell(
+                              onTap: () {
+                                musicController.playCloudAudio(e);
+                                Get.to(const MusicPlayerScreen());
+                              },
+                              child: ListTile(
+                                title: Text(
+                                  "${e.title}",
+                                  style: const TextStyle(fontSize: 18, color: baseColor, fontFamily: 'hind_medium'),
+                                ),
+                                subtitle: Text(
+                                  "${e.artist}",
+                                  style: TextStyle(fontSize: 15, color: baseColor.shade50, fontFamily: 'hind'),
+                                ),
+                                leading: Icon(
+                                  Icons.music_note,
+                                  color: baseColor.shade900,
+                                ),
+                              ),
                             ),
-                            leading: Icon(Icons.music_note,color: baseColor.shade900,),
-
-                          ),
-                        ),
-                      )).toList(),
-                    )
-              ))
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

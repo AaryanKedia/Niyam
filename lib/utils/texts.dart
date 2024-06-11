@@ -4,7 +4,7 @@ String appInfo ="";
 
 const arti  = "|| आरती ||";
 const bhajan = "|| भजन ||";
-const donation  = "|| दान ||";
+const donation  = "|| भेट ||";
 
 
 // ARTI PAGE PAGES

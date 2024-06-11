@@ -32,7 +32,7 @@ class _HomeScreen extends State<HomeScreen> {
     ),
     TabItem(
       icon: Iconsax.money_send_outline,
-      title: 'दान',
+      title: 'भेट',
     ),
   ];
 
