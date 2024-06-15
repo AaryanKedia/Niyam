@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icons_plus/icons_plus.dart';
+import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/LyricsScreen/lyrics_screen.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/MusicController/music_controller.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/music_player_screen.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/controller/cloud_storage_controller.dart';
@@ -85,6 +87,23 @@ class BhajanScreen extends StatelessWidget {
               ),
             ),
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Get.to(()=>LyricsScreen(),
+                transition: Transition.downToUp
+            );
+          },
+          shape: const CircleBorder(),
+          backgroundColor: baseColor,
+          elevation: 5,
+          highlightElevation: 2.0,
+          child: const Icon(
+            LineAwesome.book_reader_solid,
+            size: 30,
+            color: gradient2,
+          ),
+
         ),
       ),
     );
