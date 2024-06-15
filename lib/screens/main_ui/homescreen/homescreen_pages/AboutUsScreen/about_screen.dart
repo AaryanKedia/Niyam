@@ -56,6 +56,35 @@ class _AboutScreenState extends State<AboutScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(height: 5,),
+
+            Text(
+              data[widget.lines[1]] as String,
+              style: const TextStyle(
+                color: baseColor,
+                fontSize: 20,
+                fontFamily: 'hind_medium',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              data[widget.lines[9]] as String,
+              style: const TextStyle(
+                color: baseColor,
+                fontSize: 20,
+                fontFamily: 'hind_medium',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              data[widget.lines[10]] as String,
+              style: const TextStyle(
+                color: baseColor,
+                fontSize: 20,
+                fontFamily: 'hind_medium',
+              ),
+              textAlign: TextAlign.center,
+            ),
             Text(
               data[widget.lines[0]] as String,
               style: const TextStyle(
@@ -67,7 +96,25 @@ class _AboutScreenState extends State<AboutScreen> {
             ),
 
             Text(
-              data[widget.lines[1]] as String,
+              data[widget.lines[7]] as String,
+              style: const TextStyle(
+                color: baseColor,
+                fontSize: 20,
+                fontFamily: 'hind_medium',
+              ),
+              textAlign: TextAlign.center,
+            ),  Text(
+              data[widget.lines[0]] as String,
+              style: const TextStyle(
+                color: baseColor,
+                fontSize: 20,
+                fontFamily: 'hind_medium',
+              ),
+              textAlign: TextAlign.center,
+            ),
+
+            Text(
+              data[widget.lines[8]] as String,
               style: const TextStyle(
                 color: baseColor,
                 fontSize: 20,
