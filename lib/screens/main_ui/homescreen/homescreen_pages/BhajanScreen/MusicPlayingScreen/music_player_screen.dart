@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/MusicPlayingScreen/MusicController/music_controller.dart';
 import 'package:niyam/screens/main_ui/homescreen/homescreen_pages/BhajanScreen/controller/cloud_storage_controller.dart';
 import '../../../../../../utils/colours.dart';
-import 'MusicWidget/ads_display.dart';
+import '../../../../../../AdSetUp/ads_display.dart';
 import 'MusicWidget/music_controller_widget.dart';
 import 'MusicWidget/music_details_widget.dart';
 import 'MusicWidget/music_logo_widget.dart';
