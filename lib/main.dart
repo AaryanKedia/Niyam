@@ -7,6 +7,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:niyam/firebase_options.dart';
 import 'package:niyam/screens/splashscreen/splash_screen.dart';
+import 'package:niyam/utils/colours.dart';
+import 'package:upgrader/upgrader.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,11 +44,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Niyam Diary',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: gradient1),
         useMaterial3: true,
       ),
       // debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: UpgradeAlert(
+        dialogStyle: UpgradeDialogStyle.material,
+          child:const SplashScreen()),
     );
   }
 }

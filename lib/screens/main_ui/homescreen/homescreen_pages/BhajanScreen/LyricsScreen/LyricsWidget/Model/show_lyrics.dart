@@ -62,7 +62,7 @@ class ShowLyrics extends StatelessWidget {
                                 .replaceAll("_b", "\n"),
                             style: TextStyle(
                               color: baseColor.shade600,
-                              fontSize: 20,
+                              fontSize: 21,
                               fontFamily: 'hind_medium',
                             ),
                             textAlign: TextAlign.center,

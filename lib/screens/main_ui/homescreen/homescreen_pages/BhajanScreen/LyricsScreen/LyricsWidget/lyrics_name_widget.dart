@@ -34,7 +34,7 @@ class LyricsName extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 25),
                     child: SizedBox(
-                      width: MediaQuery.sizeOf(context).width * 0.92,
+                      width: MediaQuery.sizeOf(context).width * 0.96,
                       height: 55,
                       child: ElevatedButton(
                         onPressed: (){
@@ -56,7 +56,7 @@ class LyricsName extends StatelessWidget {
                             title: Text(
                               "${e.name}",
                               textAlign: TextAlign.center,
-                              style:  TextStyle(fontSize: 22, color: baseColor.shade600, fontFamily: 'hind_semi_bold',wordSpacing: 7),
+                              style:  TextStyle(fontSize: 20, color: baseColor.shade600, fontFamily: 'hind_semi_bold',wordSpacing: 3),
                             ),
                             // leading: Icon(
                             //   Icons.music_note,
