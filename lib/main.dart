@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:niyam/firebase_options.dart';
-import 'package:niyam/screens/splashscreen/splash_screen.dart';
+import 'package:niyam/screens/splashscreens/splash_screen.dart';
 import 'package:niyam/utils/colours.dart';
 import 'package:upgrader/upgrader.dart';
 
