@@ -32,6 +32,10 @@ dependencies:
   icons_plus: ^5.0.0
   line_icons: ^2.0.3
   font_awesome_flutter: ^10.7.0
+  firebase_crashlytics: ^3.5.2
+  firebase_analytics: ^10.10.2
+  firebase_performance: ^0.9.4+2
+  firebase_messaging: ^14.9.4
 
   ## Bottom Bar
   awesome_bottom_bar: ^1.2.4
@@ -45,16 +49,22 @@ dependencies:
 
   ##State Change Dependencies
   get: ^4.6.6
-  firebase_crashlytics: ^3.5.2
-  firebase_analytics: ^10.10.2
-  firebase_performance: ^0.9.4+2
-  flutter_local_notifications: ^17.0.1
+
+  ## Send local notification
+  flutter_local_notifications: ^17.2.1
+
 
   ## ads
   google_mobile_ads: ^5.0.0
 
   ## APP UPDATE
   upgrader: ^10.3.0
+  firebase_in_app_messaging: ^0.7.5+7
+
+
+  ## FOR CLEARING CATCHs
+  path_provider: ^2.1.3
+
 
 
 dev_dependencies:

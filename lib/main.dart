@@ -1,17 +1,22 @@
 import 'dart:ui';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:niyam/firebase_options.dart';
 import 'package:niyam/screens/splashscreens/splash_screen.dart';
 import 'package:niyam/utils/colours.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:upgrader/upgrader.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -31,8 +36,25 @@ Future<void> main() async {
     testDeviceIds: devices
   );
   MobileAds.instance.updateRequestConfiguration(requestConfiguration);
+  // final fcmToken = await FirebaseMessaging.instance.getToken();
+  await clearFirebaseCache();
+  await clearAppCache();
   runApp(const MyApp());
 
+}
+
+
+
+
+Future<void> clearFirebaseCache() async {
+  await FirebaseFirestore.instance.clearPersistence();
+}
+
+Future<void> clearAppCache() async {
+  var tempDir = await getTemporaryDirectory();
+  if (tempDir.existsSync()) {
+    tempDir.deleteSync(recursive: true);
+  }
 }
 
 class MyApp extends StatelessWidget {
