@@ -22,8 +22,8 @@ class _AdsState extends State<Ads> {
 
         // TODO
         // have to change before publish
-        adUnitId:realID,
-        // adUnitId: testID,
+        // adUnitId:realID,
+        adUnitId: testID,
 
         // _----------------------
         listener: BannerAdListener(
